@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2020. Alsurmedia
+ * Author: Santiago Bermejo - sbermejo@alsurmedia.com
+ * Site: https://alsurmedia.com
+ */
+
+@import '../faq.css';
+.admin__menu .item-faqs.level-0>a {
+
+    color: #aaa6a1;
+
+    &:before {
+        content: "\e813";
+        font-family: 'faq';
+        border: 1px solid #aaa6a1;
+        padding: 7px 0;
+        margin: 10px auto;
+        border-radius: 40px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+    }
+
+    &:hover {
+        color: #fff;
+        &:before {
+            border: 1px solid #fff;
+        }
+    }
+}

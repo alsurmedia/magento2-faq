@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2020. Alsurmedia
+  ~ Author: Santiago Bermejo - santiago@alsurmedia.com
+  ~ Site: www.alsurmedia.com
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <head>
+        <css src="prototype/windows/themes/default.css"/>
+    </head>
+
+    <body>
+
+        <referenceContainer name="content">
+            <block class="Alsurmedia\Faq\Block\Adminhtml\Faq\Edit" name="alsurmedia_faq_edit"/>
+        </referenceContainer>
+
+        <referenceContainer name="left">
+            <block class="Alsurmedia\Faq\Block\Adminhtml\Faq\Edit\Tabs" name="alsurmedia_faq_edit_tabs">
+                <block class="Alsurmedia\Faq\Block\Adminhtml\Faq\Edit\Tab\General" name="alsurmedia_faq_edit_tab_general"/>
+                <block class="Alsurmedia\Faq\Block\Adminhtml\Faq\Edit\Tab\Content" name="alsurmedia_faq_edit_tab_content"/>
+                <block class="Alsurmedia\Faq\Block\Adminhtml\Faq\Edit\Tab\SearchEngineOptimisation" name="alsurmedia_faq_edit_tab_optimisation"/>
+                <block class="Alsurmedia\Faq\Block\Adminhtml\Faq\Edit\Tab\Websites" name="alsurmedia_faq_edit_tab_websites"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general_section</argument>
+                    <argument name="block" xsi:type="string">alsurmedia_faq_edit_tab_general</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">content_section</argument>
+                    <argument name="block" xsi:type="string">alsurmedia_faq_edit_tab_content</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">optimisation_section</argument>
+                    <argument name="block" xsi:type="string">alsurmedia_faq_edit_tab_optimisation</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">websites_section</argument>
+                    <argument name="block" xsi:type="string">alsurmedia_faq_edit_tab_websites</argument>
+                </action>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="legal.copyright">
+            <block class="Magento\Backend\Block\Page\Copyright" name="faq-copyright" template="Alsurmedia_Faq::footer/copyright.phtml"/>
+            <referenceBlock name="copyright" remove="true"/>
+        </referenceContainer>
+
+    </body>
+
+</page>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2020. Alsurmedia
+  ~ Author: Santiago Bermejo - sbermejo@alsurmedia.com
+  ~ Site: https://alsurmedia.com
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <head>
+        <script src="Alsurmedia_Faq::js/faq.js" />
+        <css src="Alsurmedia_Faq::css/faq.css"/>
+    </head>
+
+    <referenceBlock name="catalog.compare.sidebar" remove="true" />
+    <referenceBlock name="wishlist_sidebar" remove="true" />
+
+</page>

@@ -1,0 +1,32 @@
+<div class="faq__category">
+
+    <div class="faq__category--header">
+        <img src="<?= !empty($this->getFaqcategoryIcon()) ? $this->getFaqcategoryIcon() : $block->getViewFileUrl('Alsurmedia_Faq::images/icon_faq_category.png'); ?>"/>
+        <h2 class="faq__category--title first-title">
+        <?= __($this->getFaqcategoryTitle()); ?> - <?= __('Frequent Questions');?></h2>
+    </div>
+
+    <?php if ($this->getFaqsList()): ?>
+        <div class="faq__accordion">
+            <?php foreach($this->getFaqsList() as $faq): ?>
+                <div class="faq__question" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name"><?= $faq['title']; ?></h3>
+                    <div class="description" id="description">
+                        <span itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <span itemprop="text">
+                                <?= $block->filterProvider($faq['content']); ?>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <ol class="items faqs-list">
+            <li class="item no-question">
+                <a href="#"><?= __('No questions found'); ?></a>
+            </li>
+        </ol>
+    <?php endif; ?>
+
+</div>

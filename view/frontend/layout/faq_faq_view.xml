@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2020. Alsurmedia
+  ~ Author: Santiago Bermejo - sbermejo@alsurmedia.com
+  ~ Site: https://alsurmedia.com
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <!--<head>-->
+        <!--<script src="Alsurmedia_Faq::js/js-category.js" />-->
+    <!--</head>-->
+
+    <update handle="faq_layout"/>
+
+    <referenceContainer name="content">
+        <block class="Alsurmedia\Faq\Block\Faq\Faq" name="faq.faq.view" template="Alsurmedia_Faq::faq/view.phtml" cacheable="false" />
+    </referenceContainer>
+
+    <referenceContainer name="sidebar.main">
+        <block class="Alsurmedia\Faq\Block\Category\CategorySidebar" name="faq.category.sidebar.view" template="Alsurmedia_Faq::category/categorySidebar.phtml" />
+    </referenceContainer>
+
+</page>

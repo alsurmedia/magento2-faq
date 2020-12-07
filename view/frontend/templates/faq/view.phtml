@@ -1,0 +1,79 @@
+<div class="faq__category" itemscope itemtype="https://schema.org/FAQPage">
+    <h2 class="faq__category--title first-title"><i></i><?= __('Support Categories');?></h2>
+    <?php if ($this->getFaqCategoriesList()): ?>
+        <ul class="faq__category--list">
+            <?php foreach ($this->getFaqCategoriesList() as $category): ?>
+                <li class="col-xs-6 col-sm-4 col-md-3 category">
+                    <div class="block">
+                        <a href="<?= $this->getFaqcategoryFullPath($category['identifier']); ?>">
+                            <img src="<?= !empty($category['image']) ? $this->getFileBaseUrl('alsurmedia/faq/category/'.$category['image']) : $block->getViewFileUrl('Alsurmedia_Faq::images/icon_faq_category.png'); ?>" alt="<?= __($category['title']);?>" title="<?= __($category['title']);?> - <?= __('Frequent Questions'); ?>" />
+                        </a>
+                        <h3>
+                            <a href="<?= $this->getFaqcategoryFullPath($category['identifier']); ?>">
+                                <?= __($category['title']);?>
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    <?php else: ?>
+        <ol class="items faqs-list">
+            <li class="item no-question">
+                <a href="#"><?= __('No categories found'); ?></a>
+            </li>
+        </ol>
+    <?php endif; ?>
+
+    <h2 class="faq__category--title">
+        <i></i><?= __('Popular Questions');?>
+    </h2>
+    <?php if ($this->getFrequentlyAskedQuestion()): ?>
+        <div class="faq__accordion">
+            <?php foreach($this->getFrequentlyAskedQuestion() as $faq): ?>
+                <div class="faq__question" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name"><?= $faq['title']; ?></h3>
+                    <div class="description" id="description">
+                        <span itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <span itemprop="text">
+                                <?= $block->filterProvider($faq['content']); ?>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <ol class="items faqs-list">
+            <li class="item no-question">
+                <a href="#"><?= __('No frequently asked questions found'); ?></a>
+            </li>
+        </ol>
+    <?php endif; ?>
+
+    <h2 class="faq__category--title"><i></i><?= __('Latest Questions');?></h2>
+    <?php if ($this->getLastestFAQ()): ?>
+        <div class="faq__accordion">
+            <?php foreach($this->getLastestFAQ() as $faq): ?>
+                <div class="faq__question" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name"><?= $faq['title']; ?></h3>
+                    <div class="description" id="description">
+                        <span itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <span itemprop="text">
+                                <?= $block->filterProvider($faq['content']); ?>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <ol class="items faqs-list">
+            <li class="item no-question">
+                <a href="#"><?= __('No latest questions found'); ?></a>
+            </li>
+        </ol>
+    <?php endif; ?>
+</div>
+
+

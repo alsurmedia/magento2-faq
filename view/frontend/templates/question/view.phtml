@@ -1,0 +1,52 @@
+<div class="faq__content">
+    <h1><?php echo $this->getFaqTitle();?></h1>
+    <div class="details">
+        <div class="created-by">
+            <span class="category">
+                <i class="faq-tag"></i>
+                <?php echo ($this->getFaqcategoryTitle()) ? __($this->getFaqcategoryTitle()).' ' : ''; ?>
+            </span>
+            <span class="calendar">
+                <i class="faq-calendar"></i>
+                <?php  echo ($this->getFaqCreated()) ? $this->getFaqCreated() : '' ; ?>
+            </span>
+            <span class="viewed">
+                <i class="faq-eye"></i>
+                <?php echo $this->getFaqViewed(); ?> <?php echo __('Views'); ?>
+            </span>
+        </div>
+        <div class="content"><?php echo $block->filterProvider($this->getFaqContent()); ?></div>
+        <div class="feedback" id="feedback">
+            <div class="hidden" id="BASE_URL"><?php echo $this->getAjaxUrl(); ?></div>
+            <div class="hidden" id="message"><?php echo __('Glad to hear it — Thanks for the feedback'); ?></div>
+            <span><?php echo __('Was this article helpful?'); ?></span>
+            <button class="btn" id="btn-like">
+                <span class="faq-emo-happy"></span>
+            </button>
+            <button class="btn red" id="btn-dislike">
+                <span class="faq-emo-unhappy"></span>
+            </button>
+        </div>
+    </div>
+    <?php if ($this->getRelatedQuestion()): ?>
+        <div class="related-question">
+            <h2 class="faqcategory-title first-title"><i></i><?php echo __('Related Questions');?></h2>
+            <ol class="items">
+                <?php foreach($this->getRelatedQuestion() as $faq): ?>
+                    <li class="item">
+                        <a href="<?php echo $this->getFaqFullPath($faq['identifier']); ?>"><?php echo $faq['title']; ?></a>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    <?php endif; ?>
+
+    <div class="btn" id="btn-back">
+        <a href="<?= $this->getFaqcategoryUrl() ?>">
+            <span class="faq-back"><?php echo __('Go back'); ?></span>
+        </a>
+    </div>
+
+</div>
+
+

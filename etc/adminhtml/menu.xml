@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2020. Alsurmedia
+  ~ Author: Santiago Bermejo - sbermejo@alsurmedia.com
+  ~ Site: https://alsurmedia.com
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Alsurmedia_Faq::faqs" title="FAQ" module="Alsurmedia_Faq" sortOrder="60" resource="Alsurmedia_Faq::faqs"/>
+        <add id="Alsurmedia_Faq::faq" title="Questions" module="Alsurmedia_Faq" sortOrder="61" parent="Alsurmedia_Faq::faqs" action="alsurmedia/faq" resource="Alsurmedia_Faq::faq"/>
+        <add id="Alsurmedia_Faq::category" title="Categories" module="Alsurmedia_Faq" sortOrder="62" parent="Alsurmedia_Faq::faqs" action="alsurmedia/faqcategory" resource="Alsurmedia_Faq::faq"/>
+    </menu>
+</config>
